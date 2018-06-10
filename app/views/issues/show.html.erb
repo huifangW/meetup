@@ -1,0 +1,24 @@
+<div class="issue-heading">
+  <div class="container">
+    <%= @issue.title %>
+    <%= link_to 'Destroy', issue_path(@issue), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+    <%= link_to 'edit', edit_issue_path(@issue), class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="container">
+  <div class="replies">
+    <article class="reply clearfix">
+      <div class="avatar">
+        <img src="<%= image_url "admin.jpg" %>" alt="" class="image-circle">
+      </div>
+      <div class="body">
+        <div class="heading">
+          <h5 class="name"><a href="#">huifang wang[Admin]</a></h5>
+        </div>
+        <%= @issue.content %>
+      </div>
+    </article>
+    <%= render 'shared/comment_list' %>
+    <%= render 'shared/comment_box' %>
+  </div>
+</div>
